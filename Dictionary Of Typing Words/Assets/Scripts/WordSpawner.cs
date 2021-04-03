@@ -8,6 +8,7 @@ public class WordSpawner : MonoBehaviour
     public GameObject wordPrefab;
     public Transform wordCanvas;
 
+
     public WordDisplay SpawnWord ()
     {
 

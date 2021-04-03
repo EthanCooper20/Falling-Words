@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class WordDisplay : MonoBehaviour
 {
+    public Text wordText;
     public Text text;
     public float fallSpeed = 1f;
 
@@ -26,6 +27,10 @@ public class WordDisplay : MonoBehaviour
 
     private void Update()
     {
+        if (wordText.transform.position.y <= -5f) // if word falls below screen, destroy it 
+        {
+            Destroy(gameObject);
+        }
         transform.Translate(0f, -fallSpeed * Time.deltaTime, 0f);
     }
 }

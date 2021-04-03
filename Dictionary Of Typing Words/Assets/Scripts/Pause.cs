@@ -51,13 +51,13 @@ public class Pause : MonoBehaviour
 
     public void QuitGame()
     {
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("Outro");
 
     }
 
     public void NewGame()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Menu");
     }
 
 }

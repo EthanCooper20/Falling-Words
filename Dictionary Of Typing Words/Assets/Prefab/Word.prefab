@@ -92,4 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae63688f9ffc60448e69dce31331bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wordText: {fileID: 2496138881248171062}
   text: {fileID: 2496138881248171062}
+  fallSpeed: 1

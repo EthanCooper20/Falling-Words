@@ -3,11 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using CodeMonkey.Utils;
+using UnityEngine.SceneManagement;
+
 public class HighScoreTable : MonoBehaviour
 {
+    public Text highScore;
+
+
+    public void Reset()
+    {
+        PlayerPrefs.DeleteAll();
+        highScore.text = "0";
+    }
+
+
+
+
     private Transform entryContainer;
     private Transform entryTemplate;
     private List<Transform> highscoreEntryTransformList;
+    
+  
 
     private void Awake()
     {
@@ -15,6 +31,7 @@ public class HighScoreTable : MonoBehaviour
         entryTemplate = entryContainer.Find("highscoreEntryTemplate");
 
         entryTemplate.gameObject.SetActive(false);
+
 
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
@@ -38,6 +55,8 @@ public class HighScoreTable : MonoBehaviour
         {
             CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
         }
+
+
 
     }
 
@@ -125,6 +144,8 @@ public class HighScoreTable : MonoBehaviour
     {
         public List<HighscoreEntry> highscoreEntryList;
     }
+
+
     /*
      * Represents a single High score entry
      * */
@@ -134,5 +155,6 @@ public class HighScoreTable : MonoBehaviour
         public int score;
         public string name;
     }
-       
+
+
 }

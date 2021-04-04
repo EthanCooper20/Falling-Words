@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using System.IO;
 
 public class Pause : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class Pause : MonoBehaviour
 
     private int currentSceneIndex;
 
+    public GameSaving gameSaving;
 
     public GameObject pauseMenuUI;
     // Update is called once per frame
@@ -60,4 +61,15 @@ public class Pause : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    public void SaveGame()
+    {
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("SavedScene", currentSceneIndex);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetInt("SavedScene"));
+    }
 }
